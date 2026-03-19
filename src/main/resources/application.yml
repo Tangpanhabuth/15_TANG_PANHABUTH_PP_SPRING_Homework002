@@ -1,0 +1,12 @@
+spring:
+  application:
+      name: school_api
+  end-point : /api/v1
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/school_db
+    username: postgres
+    password: Buth1234
+
+server:
+  port: 8081
