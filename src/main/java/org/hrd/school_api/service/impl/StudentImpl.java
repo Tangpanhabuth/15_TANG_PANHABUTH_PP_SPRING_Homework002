@@ -23,7 +23,7 @@ public class StudentImpl implements StudentService {
     private final StudentCourseRepository studentCourseRepo;
 
     @Override
-    public ResponseEntity<ApiResponse<List<Student>>> getAllStudents() {
+    public ResponseEntity<ApiResponse<List<Student>>> getAllStudents(Integer page, Integer size) {
 
         List<Student> stu = studentRepo.findAllStudents();
 

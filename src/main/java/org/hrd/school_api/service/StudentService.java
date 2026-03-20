@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public interface StudentService {
 
-    ResponseEntity<ApiResponse<List<Student>>> getAllStudents();
+    ResponseEntity<ApiResponse<List<Student>>> getAllStudents(Integer page, Integer size);
     ResponseEntity<ApiResponse<Student>> getStudentById(Integer studentId);
 
     ResponseEntity<ApiResponse<Void>> deleteStudentById(Integer studentId);

@@ -21,8 +21,8 @@ public interface StudentRepo {
 
             )
     })
-    @Select("SELECT * FROM students")
-    List<Student> findAllStudents();
+    @Select("SELECT * FROM students LIMIT #{size} OFFSET (#{page} - 1) * #{size}")
+    List<Student> findAllStudents(Integer page, Integer size);
 
     @ResultMap("studentMapper")
     @Select("""
