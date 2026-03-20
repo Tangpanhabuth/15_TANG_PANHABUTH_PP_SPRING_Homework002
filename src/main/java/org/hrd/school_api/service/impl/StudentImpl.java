@@ -25,7 +25,7 @@ public class StudentImpl implements StudentService {
     @Override
     public ResponseEntity<ApiResponse<List<Student>>> getAllStudents(Integer page, Integer size) {
 
-        List<Student> stu = studentRepo.findAllStudents();
+        List<Student> stu = studentRepo.findAllStudents(page,size);
 
         if(stu != null && !stu.isEmpty()){
 
