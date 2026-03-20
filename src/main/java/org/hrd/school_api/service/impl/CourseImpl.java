@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -35,14 +36,15 @@ public class CourseImpl implements CourseService {
                             .build()
             );
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+        return ResponseEntity.status(HttpStatus.OK).body(
                 ApiResponse.<List<Course>>builder()
-                        .success(Boolean.FALSE)
-                        .status("404 NOT_FOUND")
-                        .message("NO COURSE FOUND")
-                        .payload(null)
+                        .success(Boolean.TRUE)
+                        .status("200")
+                        .message("get all course success")
+                        .payload(new ArrayList<>())
                         .time(Instant.now())
-                        .build());
+                        .build()
+        );
 
     }
 
