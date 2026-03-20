@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -29,19 +30,19 @@ public class InstructorImpl implements InstructorService {
             return ResponseEntity.status(HttpStatus.OK).body(
                     ApiResponse.<List<Instructor>>builder()
                             .success(Boolean.TRUE)
-                            .status("200 OK")
+                            .status("200")
                             .message("get all Instructor success")
                             .payload(instructor)
                             .time(Instant.now())
                             .build()
 
             );
-        }return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+        }return ResponseEntity.status(HttpStatus.OK).body(
                 ApiResponse.<List<Instructor>>builder()
-                        .success(Boolean.FALSE)
-                        .status("404 NOT_FOUND")
-                        .message("NO INSTRUCTOR FOUND")
-                        .payload(null)
+                        .success(Boolean.TRUE)
+                        .status("200")
+                        .message("get all Instructor success")
+                        .payload(new ArrayList<>())
                         .time(Instant.now())
                         .build()
 

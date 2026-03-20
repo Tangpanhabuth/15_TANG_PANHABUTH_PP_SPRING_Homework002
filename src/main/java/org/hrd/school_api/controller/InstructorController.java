@@ -19,7 +19,7 @@ public class InstructorController {
     private final InstructorService instructorService;
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<Instructor>>> getAllInstructorById(@RequestParam Integer size , @RequestParam Integer page) {
+    public ResponseEntity<ApiResponse<List<Instructor>>> getAllInstructor(@RequestParam (defaultValue = "10") Integer size , @RequestParam (defaultValue = "1") Integer page) {
         return instructorService.getAllInstructor(page,size);
     }
 

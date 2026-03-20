@@ -20,7 +20,7 @@ public class CourseController {
     private final CourseService courseService;
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<Course>>> getAllCourses(@RequestParam Integer page,@RequestParam Integer size) {
+    public ResponseEntity<ApiResponse<List<Course>>> getAllCourses(@RequestParam (defaultValue = "1") Integer page,@RequestParam (defaultValue = "10") Integer size) {
         return courseService.getAllCourses(page, size);
     }
     @GetMapping("/{courseId}")

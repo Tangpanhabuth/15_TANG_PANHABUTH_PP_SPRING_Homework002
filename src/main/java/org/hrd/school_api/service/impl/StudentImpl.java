@@ -10,8 +10,10 @@ import org.hrd.school_api.utils.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -23,7 +25,8 @@ public class StudentImpl implements StudentService {
     private final StudentCourseRepository studentCourseRepo;
 
     @Override
-    public ResponseEntity<ApiResponse<List<Student>>> getAllStudents(Integer page, Integer size) {
+    public ResponseEntity<ApiResponse<List<Student>>> getAllStudents(Integer page,Integer size) {
+
 
         List<Student> stu = studentRepo.findAllStudents(page,size);
 
@@ -39,12 +42,13 @@ public class StudentImpl implements StudentService {
                             .build()
 
             );
-        }return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(
                 ApiResponse.<List<Student>>builder()
-                        .success(Boolean.FALSE)
-                        .status("404 NOT_FOUND")
-                        .message("NO STUDENT FOUND")
-                        .payload(null)
+                        .success(Boolean.TRUE)
+                        .status("200")
+                        .message("get all students success")
+                        .payload(new ArrayList<>())
                         .time(Instant.now())
                         .build()
 

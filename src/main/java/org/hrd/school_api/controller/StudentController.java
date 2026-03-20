@@ -20,8 +20,8 @@ public class StudentController {
     private final StudentImpl studentImp;
 
     @GetMapping
-    ResponseEntity<ApiResponse<List<Student>>> getAllStudents(@RequestParam Integer page,@RequestParam Integer size) {
-        return studentImp.getAllStudents(page, size);
+    ResponseEntity<ApiResponse<List<Student>>> getAllStudents(@RequestParam (defaultValue = "1") Integer page,@RequestParam (defaultValue = "10") Integer size) {
+        return studentImp.getAllStudents(page ,size);
     }
 
     @GetMapping("/{studentId}")
